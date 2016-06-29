@@ -29,6 +29,8 @@ public class QueueReader implements Runnable {
                 number = queue.take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                done = true;
+                continue;
             }
             Fibonacci executeFibonacci = new Fibonacci(number);
             service.submit(executeFibonacci);
