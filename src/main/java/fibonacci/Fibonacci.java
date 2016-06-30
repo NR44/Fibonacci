@@ -15,7 +15,6 @@ import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStat
  */
 public class Fibonacci implements Runnable {
     private int num;
-    private long fibnum;
 
     public Fibonacci(int desiredNumber) {
         this.num = desiredNumber;
@@ -36,7 +35,6 @@ public class Fibonacci implements Runnable {
         } else {
             rval = fib(number - 1) + fib(number - 2);
         }
-        this.fibnum = rval;
         return rval;
     }
 
@@ -45,6 +43,6 @@ public class Fibonacci implements Runnable {
      */
     @Override
     public void run() {
-        System.out.printf("The %dth number in Fibbonacci is: %d\n", this.num, this.fibnum);
+        System.out.printf("The %dth number in Fibbonacci is: %d\n", this.num, fib(this.num));
     }
 }
